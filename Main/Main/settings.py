@@ -123,21 +123,21 @@ STATIC_URL = 'static/'
 # https://docs.djangoproject.com/en/5.0/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
-import pymysql
-pymysql.install_as_MySQLdb()
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'Recovery',
-        'USER': 'root',
-        'PASSWORD': 'rmstar28239',
-        'HOST': 'localhost',  # Set to the appropriate host
-        'PORT': '3306',       # Set to the appropriate port
-        'OPTIONS': {
-            'charset': 'utf8mb4',
-        },
-    }
-}
+# import pymysql
+# pymysql.install_as_MySQLdb()
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.mysql',
+#         'NAME': 'Recovery',
+#         'USER': 'root',
+#         'PASSWORD': 'rmstar28239',
+#         'HOST': 'localhost',  # Set to the appropriate host
+#         'PORT': '3306',       # Set to the appropriate port
+#         'OPTIONS': {
+#             'charset': 'utf8mb4',
+#         },
+#     }
+# }
 # DATABASES = {
 #     'default': {
 #         'ENGINE': 'django.db.backends.mysql',
