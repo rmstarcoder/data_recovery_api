@@ -25,7 +25,7 @@ SECRET_KEY = 'django-insecure-iv9%quaw9b3uu!j3wmky)!8ph@q_9n+20&&vw10_&%@b-c#f9g
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = ['localhost','manmeshind.www.pythonanywhere','https://datarecovery-api.onrender.com']
+ALLOWED_HOSTS = ['localhost','manmeshind.www.pythonanywhere',]
 
 
 # Application definition
