@@ -25,7 +25,7 @@ SECRET_KEY = 'django-insecure-iv9%quaw9b3uu!j3wmky)!8ph@q_9n+20&&vw10_&%@b-c#f9g
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = ['127.0.0.1','localhost','manmeshind.www.pythonanywhere',]
+ALLOWED_HOSTS = ['127.0.0.1','localhost','manmeshind.pythonanywhere.com',]
 
 
 # Application definition
@@ -75,12 +75,12 @@ WSGI_APPLICATION = 'Main.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/5.0/ref/settings/#databases
 
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
-    }
-}
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.sqlite3',
+#         'NAME': BASE_DIR / 'db.sqlite3',
+#     }
+# }
 
 
 # Password validation
@@ -124,21 +124,21 @@ STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 # https://docs.djangoproject.com/en/5.0/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
-# import pymysql
-# pymysql.install_as_MySQLdb()
-# DATABASES = {
-#     'default': {
-#         'ENGINE': 'django.db.backends.mysql',
-#         'NAME': 'Recovery',
-#         'USER': 'root',
-#         'PASSWORD': 'rmstar28239',
-#         'HOST': 'localhost',  # Set to the appropriate host
-#         'PORT': '3306',       # Set to the appropriate port
-#         'OPTIONS': {
-#             'charset': 'utf8mb4',
-#         },
-#     }
-# }
+import pymysql
+pymysql.install_as_MySQLdb()
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.mysql',
+        'NAME': 'Recovery',
+        'USER': 'root',
+        'PASSWORD': 'rmstar28239',
+        'HOST': 'localhost',  # Set to the appropriate host
+        'PORT': '3306',       # Set to the appropriate port
+        'OPTIONS': {
+            'charset': 'utf8mb4',
+        },
+    }
+}
 # DATABASES = {
 #     'default': {
 #         'ENGINE': 'django.db.backends.mysql',
