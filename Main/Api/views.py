@@ -70,5 +70,35 @@ class DashbrdFreetriler(APIView):
         free_objs = FreeTriler.objects.all()
         serializer = FreeTrailerSerlizers(free_objs, many=True)
         return Response({'status': 200, 'payload': serializer.data})
-    def post(self,request):
-        pass
+    def patch(self,request):
+        try:
+            # Get the object based on the windoid
+            firee_obj = FreeTriler.objects.get(windoid=request.data['windoid'])
+            serializer = FreeTrailerSerlizers(firee_obj, data=request.data, partial=True)
+            if serializer.is_valid():
+                serializer.save()
+                return Response({'status': 204, 'message': 'Data Update successfully'})
+            else:
+                return Response({'status': 403, 'error': serializer.errors})
+
+
+
+        except FreeTriler.DoesNotExist:
+            # Handle the case where the object with the specified windoid is not found
+            return Response({'status': 404, 'error': 'Resource not found'})
+
+        except Exception as e:
+            # Handle other exceptions
+            return Response({'status': 500, 'error': f'Internal Server Error: {str(e)}'})
+
+    def delete(self,request):
+        try:
+            firee_obj = FreeTriler.objects.get(windoid=request.data['windoid'])
+            firee_obj.delete()
+            return Response({'status': 204, 'message': 'Delete Records'})
+        except Exception as e:
+            print(e)
+            return Response({'status': 403, 'error': 'Invalid Input'})
+
+
+
