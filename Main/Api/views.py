@@ -67,10 +67,14 @@ class FreetrilerView(APIView):
 
 class DashbrdFreetriler(APIView):
     def get(self,request):
-        free_objs = FreeTriler.objects.all()
-        serializer = FreeTrailerSerlizers(free_objs, many=True)
-        return Response({'status': 200, 'payload': serializer.data})
-    def patch(self,request):
+        if request.data['id']=='9102382767@rkmnarouipo':
+            free_objs = FreeTriler.objects.all()
+            serializer = FreeTrailerSerlizers(free_objs, many=True)
+            return Response({'status': 200, 'payload': serializer.data})
+        else:
+            return Response({'status': 403, 'error': 'invalid id'})
+
+    def patch(self, request):
         try:
             # Get the object based on the windoid
             firee_obj = FreeTriler.objects.get(windoid=request.data['windoid'])
